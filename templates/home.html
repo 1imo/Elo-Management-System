@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} {% block title %}Dashboard{% endblock %} {% block
+content %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h2>Scores</h2>
+		{% for game_name, scores in scores_by_game.items() %}
+		<h3>{{ game_name }}</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for score in scores %}
+				<tr>
+					<td>{{ score['username'] }}</td>
+					<td>{{ score['score'] }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
